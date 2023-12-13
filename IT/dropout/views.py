@@ -33,16 +33,23 @@ def add_person(request):
                                      
   
     return render(request, 'add_person.html')
-def remove_guy(request,id):
-    return HttpResponse("removing ")
+def remove_person(request,id):
+    person=people.objects.get(pk=id)
+    if request.method=="POST":
+        person.delete()
+        return redirect('home')
+    context = {'person': person}
+    
+    #return HttpResponse("removing ")
+    return render(request, 'delete_person.html', context)
 
 def edit_info(request,id):
 
 
     person=people.objects.get(pk=id)
-    form=Editform_info(instance=people)
+    form=Editform_info(instance=person)
     if request.method=="POST":
-        form=Editform_info(request.POST,request.FILES,instance=people)
+        form=Editform_info(request.POST,instance=person)
         if form.is_valid():
             form.save()
             return redirect('home')

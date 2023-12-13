@@ -7,6 +7,6 @@ class people(models.Model):
     company=models.CharField(max_length=100)
     place_of_birth=models.CharField(max_length=100,null=True)
     def __str__(self):
-        return self.name+' '+self.company
+        return self.name+' '+self.company+' '+self.company
 
 
