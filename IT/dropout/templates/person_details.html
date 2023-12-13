@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+<!-- loads images -->
+
+
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="">
+                <a href="{% url 'home' %}" class="my-3 btn btn-dark btn-sm">Go Back</a>
+            </div>
+            <div style="height: 50vh; width: 50%;" class="bg-info">
+
+                <h5 class="text-muted">Name: {{ person.name }}</h5>
+                <small>palce_of_birth: {{ person.place_of_birth }}</small><br>
+                <small>Company: {{ person.company }}</small><br>
+                <a href="" class="btn btn-success btn-sm mt-3">Edit info</a>
+                <a href="" class="btn btn-danger btn-sm mt-3">Delete info</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
